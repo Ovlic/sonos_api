@@ -6,6 +6,7 @@
         <script>
             urlQuery = window.location.search
             urlQueries = urlQuery.split("&")
+            console.log(urlQueries.length)
             for(i=0; i < urlQueries.length; i++){
                 urlQueries[i].split("=")
             }
