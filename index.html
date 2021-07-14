@@ -5,16 +5,17 @@
         <div id="thediv"></div>
         <script>
             urlQuery = window.location.search
+            urlQuery = urlQuery.split("?")[1]
             urlQueries = urlQuery.split("&")
             console.log(urlQueries)
             for(i=0; i < urlQueries.length; i++){
                 urlQueries[i].split("=")
             }
+            console.log(urlQueries)
             for(i=0; i < urlQueries.length; i++){
                 const newh1 = document.createElement("h1");
-                  const newContent = document.createTextNode(`${urlQueries[i][0]}: ${urlQueries[i][1]}`);
-                  newh1.appendChild(newContent);
-                  document.getElementById("thediv").appendChild(newh1);
+                newh1.html = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
+                document.getElementById("thediv").appendChild(newh1);
             }
         </script>
     </body>
