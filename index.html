@@ -2,5 +2,26 @@
 <html>
     <body>
         <p>Yay!</p>
+        <div></div>
+        <script>
+            urlQuery = window.location.search
+            urlQueries = urlQuery.split("&")
+            for(i=0; i < urlQueries.length; i++){
+                urlQueries[i].split("=")
+            }
+            for(i=0; i < urlQueries.length; i++){
+                const newDiv = document.createElement("h1");
+
+                  // and give it some content
+                  const newContent = document.createTextNode(`${urlQueries[i][0]}: ${urlQueries[i][1]}`);
+
+                  // add the text node to the newly created div
+                  newDiv.appendChild(newContent);
+
+                  // add the newly created element and its content into the DOM
+                  const currentDiv = document.getElementById("thediv");
+                  document.body.insert(newDiv, currentDiv);
+            }
+        </script>
     </body>
 </html>
