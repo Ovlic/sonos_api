@@ -15,11 +15,11 @@
             for(i=0; i < urlQueries.length; i++){
                 const newh1 = document.createElement("h1");
                 newh1.id = `uq${i}`
-                newh1.html = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
-                console.log(newh1.html)
+                newh1.innerHTML = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
+                console.log(newh1.innerHTML)
                 console.log(newh1)
                 document.getElementById("thediv").appendChild(newh1);
-                document.getElementById(`uq${i}`).html = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
+                //document.getElementById(`uq${i}`).innerHTML = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
             }
         </script>
     </body>
