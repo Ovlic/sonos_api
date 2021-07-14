@@ -14,8 +14,10 @@
             console.log(urlQueries)
             for(i=0; i < urlQueries.length; i++){
                 const newh1 = document.createElement("h1");
+                newh1.id = `uq${i}`
                 newh1.html = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
                 console.log(newh1.html)
+                console.log(new1)
                 document.getElementById("thediv").appendChild(newh1);
             }
         </script>
