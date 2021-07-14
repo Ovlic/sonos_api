@@ -12,15 +12,8 @@
             }
             for(i=0; i < urlQueries.length; i++){
                 const newh1 = document.createElement("h1");
-
-                  // and give it some content
                   const newContent = document.createTextNode(`${urlQueries[i][0]}: ${urlQueries[i][1]}`);
-
-                  // add the text node to the newly created div
-                  newDiv.appendChild(newContent);
-
-                  // add the newly created element and its content into the DOM
-                  const currentDiv = document.getElementById("thediv");
+                  newh1.appendChild(newContent);
                   document.getElementById("thediv").appendChild(newh1);
             }
         </script>
