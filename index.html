@@ -7,9 +7,8 @@
             urlQuery = window.location.search
             urlQuery = urlQuery.split("?")[1]
             urlQueries = urlQuery.split("&")
-            console.log(urlQueries)
             for(i=0; i < urlQueries.length; i++){
-                urlQueries[i].split("=")
+                urlQueries[i] = urlQueries[i].split("=")
             }
             console.log(urlQueries)
             for(i=0; i < urlQueries.length; i++){
