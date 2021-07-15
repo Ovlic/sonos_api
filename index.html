@@ -1,26 +1,63 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="style.css">
     <body>
-        <div id="thediv">
-             <p>Yay!</p>
-        </div>
+        <form class="form" id="create_auth_code_form">
+            <label for="api_key">client_id</label>
+            <input type="password" id="api_key" name="api_key" value="e3042919-35a3-4792-a548-4fb6db9160f7" required>
+            <br><br>
+            <label for="response_type">response_type</label>
+            <input type="text" id="response_type" name="response_type" value="code" required readonly>
+            <br><br>
+            <label for="state">state</label>
+            <input type="text" id="state" name="state" value="testState" required>
+            <br><br>
+            <label for="scope">scope</label>
+            <input type="text" id="scope" name="scope" value="playback-control-all" required readonly>
+            <br><br>
+            <label for="redirect_uri">redirect_uri</label>
+            <input type="text" id="redirect_uri" name="redirect_uri" value="https://ovlic.com/sonos_api/">
+            <br><br>
+            <input type="submit" class="btn" value="Submit">
+            <!--  https://ovlic.com/sonos_api/?state=testState&code=ohrcnJjj  -->
+            
+            </button>
+        </form>
+        <br><br>
+        <h1>Auth API</h1>
+        <form class="form" id="create_token_form">
+            <label for="grant_type">grant_type</label>
+            <input type="text" id="grant_type" name="grant_type" value="authorization_code" required readonly>
+            <br><br>
+            <label for="code">code</label>
+            <input type="text" id="code" name="code" value="" required>
+            <br><br>
+            <label for="redirect_uri">redirect_uri</label>
+            <input type="text" id="redirect_uri1" name="redirect_uri" value="https://ovlic.com/sonos_api/">
+            <br><br>
+            <input type="submit" class="btn" value="Submit">
+            <!--  https://ovlic.com/sonos_api/?state=testState&code=ohrcnJjj  -->
+            
+            </button>
+        </form>
         <script>
-            urlQuery = window.location.search
-            urlQuery = urlQuery.split("?")[1]
-            urlQueries = urlQuery.split("&")
-            for(i=0; i < urlQueries.length; i++){
-                urlQueries[i] = urlQueries[i].split("=")
+            document.getElementById("create_auth_code_form").onsubmit = function(e){
+                e.preventDefault()
+                if(document.getElementById("redirect_uri").value === "") link = `https://api.sonos.com/login/v3/oauth?client_id=${document.getElementById("api_key").value}&response_type=${document.getElementById("response_type").value}&state=${document.getElementById("state").value}&scope=${document.getElementById("scope").value}`
+                else link = `https://api.sonos.com/login/v3/oauth?client_id=${document.getElementById("api_key").value}&response_type=${document.getElementById("response_type").value}&state=${document.getElementById("state").value}&scope=${document.getElementById("scope").value}&redirect_uri=${document.getElementById("redirect_uri").value}`
+                console.log(link)
+                window.open(link, '_blank').focus();
+                //location.href='https://api.sonos.com/login/v3/oauth?client_id=YourAPIKeyGoesHEre&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https%3A%2F%2Facme.example.com%2Flogin%2Ftestclient%2Fauthorized.html'
             }
-            console.log(urlQueries)
-            for(i=0; i < urlQueries.length; i++){
-                const newh1 = document.createElement("h1");
-                newh1.id = `uq${i}`
-                newh1.innerHTML = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
-                console.log(newh1.innerHTML)
-                console.log(newh1)
-                document.getElementById("thediv").appendChild(newh1);
-                //document.getElementById(`uq${i}`).innerHTML = `${urlQueries[i][0]}: ${urlQueries[i][1]}`
+            document.getElementById("create_token_form").onsubmit = function(e){
+                e.preventDefault()
+                if(document.getElementById("redirect_uri1").value === "") link = `https://api.sonos.com/login/v3/oauth?client_id=${document.getElementById("api_key").value}&response_type=${document.getElementById("response_type").value}&state=${document.getElementById("state").value}&scope=${document.getElementById("scope").value}`
+                else link = `https://api.sonos.com/login/v3/oauth?client_id=${document.getElementById("api_key").value}&response_type=${document.getElementById("response_type").value}&state=${document.getElementById("state").value}&scope=${document.getElementById("scope").value}&redirect_uri=${document.getElementById("redirect_uri").value}`
+                console.log(link)
+                window.open(link, '_blank').focus();
+                //location.href='https://api.sonos.com/login/v3/oauth?client_id=YourAPIKeyGoesHEre&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https%3A%2F%2Facme.example.com%2Flogin%2Ftestclient%2Fauthorized.html'
             }
+            console.log(window.location.search)
         </script>
     </body>
 </html>
