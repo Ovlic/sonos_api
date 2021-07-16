@@ -1,4 +1,4 @@
-input[type=text], input[type=password]{
+input[type=text], input[type=password], .textbox{
     display: block;
     width: 100%;
     padding: 12px 20px;
@@ -9,8 +9,9 @@ input[type=text], input[type=password]{
     transition: 0.5s;
     outline: none;
     font-family: Consolas;
+    background-color: white;
 }
-input[type=text]:focus {
+input[type=text]:focus, input[type=password]:focus, .textbox:focus{
     border: 3px solid #555;
 }
 .form {
@@ -38,4 +39,32 @@ input[type=text]:focus {
     cursor: pointer;
     background-color: black;
     color: white;
+}
+
+.curl_box{
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    /* margin: 0px 0; */
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: Consolas;
+    background-color: white;
 }
