@@ -63,7 +63,7 @@
                 thecurl = `curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=utf-8" \<br>
         -H "Authorization: Basic ${btoa(`${document.getElementById("client_id1").value}:${document.getElementById("client_secret").value}`)}" \<br>
         "https://api.sonos.com/login/v3/oauth/access" \<br>
-        -d "grant_type=${document.getElementById("grant_type").value}&code${document.getElementById("code").value}&redirect_uri=${encodeURIComponent(document.getElementById("redirect_uri"))}"`
+        -d "grant_type=${document.getElementById("grant_type").value}&code=${document.getElementById("code").value}&redirect_uri=${encodeURIComponent(document.getElementById("redirect_uri"))}"`
                 console.log(thecurl)
                 document.getElementById("code__").innerHTML = thecurl
             }
