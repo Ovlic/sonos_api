@@ -18,11 +18,10 @@
             <label for="redirect_uri">redirect_uri</label>
             <input type="text" id="redirect_uri" name="redirect_uri" value="https://ovlic.com/sonos_api/">
             <br><br>
-            <input type="submit" class="btn" value="Submit">
-            <!--  https://ovlic.com/sonos_api/?state=testState&code=ohrcnJjj  -->
-            
+            <input type="submit" class="btn" value="Submit">            
             </button>
         </form>
+    <!--
         <br><br>
         <h1>Auth API</h1>
         <form class="form" id="create_token_form">
@@ -43,12 +42,12 @@
             <br><br>
             <input type="submit" class="btn" value="Submit">
             <br><br>
-            <!--  https://ovlic.com/sonos_api/?state=testState&code=ohrcnJjj  -->
             <label for="code__">Curl Code</label>
             <curl id="code__" name="code__" class="curl_box">curl</curl>
             
             </button>
         </form>
+        -->
         <script>
             document.getElementById("create_auth_code_form").onsubmit = function(e){
                 e.preventDefault()
@@ -58,6 +57,7 @@
                 window.open(link, '_blank').focus();
                 //location.href='https://api.sonos.com/login/v3/oauth?client_id=YourAPIKeyGoesHEre&response_type=code&state=testState&scope=playback-control-all&redirect_uri=https%3A%2F%2Facme.example.com%2Flogin%2Ftestclient%2Fauthorized.html'
             }
+            /*
             document.getElementById("create_token_form").onsubmit = function(e){
                 e.preventDefault()
                 thecurl = `curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=utf-8" \
@@ -68,6 +68,7 @@
                 document.getElementById("code__").innerHTML = thecurl
             }
             console.log(window.location.search)
+            */
         </script>
     </body>
 </html>
